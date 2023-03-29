@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apna shooping center</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      *{
+        padding :0;
+        margin:0;
+        box-sizing: border-box ;
+      }
+        .nav{
+         width: 100%;
+        display: flex;
+        justify-content: space-between;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        background-color: #1958aa; 
+        align-items: center;
+        padding: 7px 20px 7px 80px ;
+        }
+        #logo img{
+          width: 70px;
+          border-radius: 22px; 
+        }
+        #links {  
+          display: flex;
+          justify-content: space-around;
+          width:  40%
+        }
+
+        #links a{
+          text-decoration: none;
+          color: white;
+        }
+         
+        #glass{
+          color: white;
+        }
+        #search{
+            width: 300px;
+            height: 35px;
+            border-radius: 5px;
+        }
+
+        
+        
+    </style>
+     
+</head>
+<body>
+    <div class="nav">
+      <div id="logo">
+          <img src=".\images\DEBATE CLUB.png" alt="">
+      </div>
+      <div >
+        <input type="text" id="search" placeholder="search for products"/>
+        <i class="fa-solid fa-magnifying-glass" id="glass"></i>
+      </div>
+       <div id="links">
+           <a href="Login.html">Log in</a>
+           <a href="Cart.html">Cart Details</a>
+            <a href="Order.html">Order Details</a>
+      </div>
+    </div>
+    
+    
+</body>
+ 
+</html>
