@@ -51,6 +51,13 @@
     #links a {
       text-decoration: none;
       color: white;
+
+    }
+
+    #links a:hover{
+      text-decoration: none;
+      color: rgb(70, 42, 63);
+      
     }
 
     #glass {
@@ -102,6 +109,8 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 10px;
+      /* justify-content: center;
+      align-items: center; */
 
     }
 
@@ -109,6 +118,7 @@
       width: 100%;
       height: 260px;
       border-radius: 2px;
+     
 
     }
 
@@ -118,6 +128,8 @@
       border-radius: 20px;
       box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
       text-align: center;
+      line-height: 25px;
+      
     }
 
     .container>div>button {
@@ -217,7 +229,18 @@
       color: #24262b;
       background-color: #ffffff;
     }
+/************filterpart*******************/
+  #filter{
+      display: block;
+      margin: auto;
+      padding: 15px;
+      margin-bottom: 20px;
+      background-color: #f7548a;
+      border-radius: 30px;
+      color: white;
+      border: none;
 
+    }
     
   </style>
 
@@ -239,7 +262,7 @@
       <div id="links">
         <a href="SignUp.html">Sign Up</a>
         <a href="login.html">login</a>
-        <a href="Cart.html">Cart Details</a>
+        <a href="Cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
         <a href="Order.html">Order Details</a>
       </div>
     </div>
@@ -256,8 +279,17 @@
       <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1672856821_blockbuster.jpg" alt="">
 
     </div>
-
-
+    <!-- filter part -->
+    <select id="filter">
+      <option value="">Filter By Category</option>
+      <option value="smartphones">smartphones</option>
+      <option value="laptops">Laptops</option>
+      <option value="fragrances">fragrances</option>
+      <option value="skincare">skincare</option>
+      <option value="groceries">groceries</option>
+      <option value="home decoration"></option>
+    </select>
+    <!-- /*********main container*****************/ -->
     <div class="container">
 
     </div>
@@ -355,7 +387,7 @@
   let API = "https://dummyjson.com/products";
 
   let container = document.querySelector(".container");
-
+  let cartItem = JSON.parse(localStorage.getItem('cart')) || [];
   let data;
   async function fetchData() {
     try {
@@ -404,11 +436,60 @@
 
       container.append(card);
 
+      addToCart.addEventListener('click',function(){
+
+        if(checkAvailable(element)){
+
+          alert("Product Already in Cart")
+        }
+        else{
+
+          cartItem.push({...element, quantity:1});
+
+           localStorage.setItem('cart' ,JSON.stringify(cartItem));
+
+           alert('Product Added To Cart')
+
+        }
+
+      })
+
 
     });
 
 
   }
+
+   function checkAvailable(element){ 
+
+    for(let i=0;i<cartItem.length;i++){
+
+      if(cartItem[i].id == element.id){
+
+        return true
+      }
+    }
+
+    return false
+   }
+
+   let filtered = document.getElementById("filter");
+
+  filtered.addEventListener("change", function () {
+    if (filtered.value === "") {
+      Display(data);
+    }
+    else {
+      let filterData = data.filter(function (element) {
+
+        return element.category === filtered.value
+      })
+
+      Display(filterData);
+    }
+
+  });
+
 
 
 </script>
