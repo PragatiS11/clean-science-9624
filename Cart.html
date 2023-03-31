@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apna shooping Center</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+        body {
+            line-height: 1.5;
+            font-family: "poppins", sans-serif;
+        }
+
+        /*******nav bar********/
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .nav {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            background-color: #1958aa;
+            align-items: center;
+            padding: 7px 20px 7px 80px;
+
+
+        }
+
+        #logo img {
+            width: 70px;
+            border-radius: 22px;
+        }
+
+        #links {
+            display: flex;
+            justify-content: space-around;
+            width: 40%
+        }
+
+        #links a {
+            text-decoration: none;
+            color: white;
+
+        }
+
+        #links a:hover {
+            text-decoration: none;
+            color: rgb(70, 42, 63);
+
+        }
+
+        #glass {
+            color: white;
+        }
+
+        #search {
+            width: 300px;
+            height: 35px;
+            border-radius: 5px;
+        }
+
+        /***************cart container****************/
+        #cart-container {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+
+
+        }
+
+        #cart-container div img {
+            width: 100%;
+            height: 260px;
+            border-radius: 2px;
+
+
+        }
+
+        #cart-container div {
+            width: 100%;
+            padding: 8px;
+            border-radius: 20px;
+            box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+            text-align: center;
+            line-height: 25px;
+
+        }
+
+
+
+        div>button {
+
+            margin: auto;
+            background-color: rgb(185, 164, 137);
+            border-radius: 8px;
+            border: none;
+            padding: 5px;
+            margin: 0px 2px 0px 2px;
+        }
+
+        #cart-container>div>h4 {
+
+            color: rgb(255, 165, 0)
+        }
+
+        #cart-container>div>h2 {
+
+            color: rgb(74, 74, 207);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <div id="logo">
+            <img src=".\images\DEBATE CLUB.png" alt="">
+        </div>
+        <div>
+            <input type="text" id="search" placeholder="search for products" />
+            <i class="fa-solid fa-magnifying-glass" id="glass"></i>
+        </div>
+        <div id="links">
+            <a href="index.html">Home</a>
+            <a href="SignUp.html">Sign Up</a>
+            <a href="login.html">login</a>
+            <a href="Cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="Order.html">Order Details</a>
+        </div>
+    </div>
+    <!-- ////******************Total amount**********************//// -->
+    <h1 id="total">Your Total cart Price is:- <span id="cart-total">0</span></h1>
+
+    <!-- <!-/*******************cart container*******************/ -->
+    <div id="cart-container">
+
+    </div>
+
+</body>
+
+<script>
+
+    let container = document.getElementById("cart-container");
+
+    let cartData = JSON.parse(localStorage.getItem('cart')) || [];
+
+    Display(cartData);
+
+    function Display(cartData) {
+
+        container.innerHTML = "";
+
+        cartData.forEach((element, index) => {
+
+            //console.log(element);
+
+            let card = document.createElement('div');
+            let img = document.createElement('img');
+            let category = document.createElement('h2');
+            let Brand = document.createElement('h3');
+            let discount = document.createElement('h5');
+            let description = document.createElement('p');
+            let price = document.createElement('h4');
+            let rating = document.createElement("h5");
+            let increment = document.createElement("button");
+            let quantity = document.createElement('span');
+            let decrement = document.createElement("button");
+            let remove = document.createElement("button");
+
+            img.src = element.images[0];
+            category.innerText = element.category;
+            Brand.innerText = element.brand;
+            discount.innerText = ` Disc. -${element.discountPercentage}%`;
+            description.innerText = element.description;
+            price.innerText = `Price- ${element.price}$`;
+            rating.innerText = `Rating- ${element.rating}`;
+            increment.innerText = "+";
+            quantity.innerText = element.quantity;
+            decrement.innerText = "-";
+            remove.innerText = "Remove";
+
+            remove.addEventListener('click', function () {
+
+                cartData.splice(index, 1);
+
+                localStorage.setItem('cart', JSON.stringify(cartData));
+
+                Display(cartData)
+            })
+
+            increment.addEventListener('click', function () {
+
+                element.quantity++;
+
+                localStorage.setItem("cart", JSON.stringify(cartData));
+
+                Display(cartData)
+            })
+
+            decrement.addEventListener("click", function () {
+
+                if ( element.quantity > 1) {
+
+                    element.quantity--;
+
+                    localStorage.setItem("cart", JSON.stringify(cartData));
+
+                    Display(cartData)
+                }
+            })
+
+
+
+            card.append(img, category, Brand, discount, description, price, rating, increment, quantity, decrement, remove);
+
+            container.append(card);
+
+            let cartTotal = document.getElementById("cart-total");
+
+            let sum = 0;
+
+            for (let i = 0; i < cartData.length; i++) {
+
+                sum += cartData[i].quantity * cartData[i].price;
+
+
+            }
+            cartTotal.innerText = sum;
+
+
+
+
+        });
+
+
+    }
+
+</script>
+
+</html>
