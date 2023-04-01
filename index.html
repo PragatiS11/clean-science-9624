@@ -10,15 +10,15 @@
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
+    body {
+      line-height: 1.5;
+      font-family: "poppins", sans-serif;
+    }
 
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-
-   body{
-    line-height: 1.5;
-    font-family: "poppins",sans-serif;
-   }
     /*******nav bar********/
+    
     * {
       padding: 0;
       margin: 0;
@@ -54,10 +54,10 @@
 
     }
 
-    #links a:hover{
+    #links a:hover {
       text-decoration: none;
-      color: rgb(70, 42, 63);
-      
+      color: red;
+
     }
 
     #glass {
@@ -101,6 +101,66 @@
       width: 80%;
     }
 
+    /*****cards scrollbar start********/
+    .slider {
+      position: relative;
+      width: 90%;
+      margin: 0 auto;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    .cards-container {
+      display: flex;
+      overflow-x: scroll;
+      scroll-behavior: smooth;
+    }
+
+    .card {
+      width: 300px;
+      margin-right: 20px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+    }
+
+    /* .card img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+      } */
+
+    .card h3 {
+      margin-top: 0;
+    }
+
+    .prev-btn,
+    .next-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .prev-btn {
+      left: 20px;
+    }
+
+    .next-btn {
+      right: 20px;
+    }
+
+
+    .card>img:hover {
+
+      transform: scale(1.1);
+      transition: 0.5s all ease-in-out;
+    }
+
+    /* cards scrollbar end */
 
     /*************container************/
 
@@ -118,7 +178,7 @@
       width: 100%;
       height: 260px;
       border-radius: 2px;
-     
+
 
     }
 
@@ -129,7 +189,7 @@
       box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
       text-align: center;
       line-height: 25px;
-      
+
     }
 
     .container>div>button {
@@ -152,30 +212,31 @@
     }
 
     /* *******************footer************************************/
-    .cont{
-       max-width: 1170px;
-       margin: auto;
+    .cont {
+      max-width: 1170px;
+      margin: auto;
     }
 
-    .row{
+    .row {
       display: flex;
       flex-wrap: wrap;
     }
 
-    ul{
+    ul {
       list-style: none;
     }
 
-    .footer{
+    .footer {
       background-color: rgb(85, 85, 201);
       padding: 70px 0;
     }
 
-    .footer-col{
+    .footer-col {
       width: 25%;
       padding: 0 15px;
     }
-    .footer-col h4{
+
+    .footer-col h4 {
       font-size: 18px;
       color: #ffffff;
       text-transform: capitalize;
@@ -184,7 +245,7 @@
       position: relative;
     }
 
-    .footer-col h4::before{
+    .footer-col h4::before {
       content: '';
       position: absolute;
       left: 0;
@@ -194,10 +255,12 @@
       box-sizing: border-box;
       width: 50px;
     }
-    .footer-col ul li:not(:last-child){
+
+    .footer-col ul li:not(:last-child) {
       margin-bottom: 10px;
     }
-    .footer-col ul li a{
+
+    .footer-col ul li a {
       font-size: 16px;
       text-transform: capitalize;
       color: #ffffff;
@@ -208,11 +271,12 @@
       transition: all 0.3s ease;
     }
 
-    .footer-col ul li a:hover{
+    .footer-col ul li a:hover {
       color: #ffffff;
       padding-left: 8px;
     }
-    .footer-col .social-links a{
+
+    .footer-col .social-links a {
       display: inline-block;
       height: 40px;
       width: 40px;
@@ -225,12 +289,13 @@
       transition: all 0.5s ease;
     }
 
-    .footer-col .social-links a:hover{
+    .footer-col .social-links a:hover {
       color: #24262b;
       background-color: #ffffff;
     }
-/************filterpart*******************/
-  #filter{
+
+    /************filterpart*******************/
+    #filter {
       display: block;
       margin: auto;
       padding: 15px;
@@ -241,7 +306,39 @@
       border: none;
 
     }
-    
+
+    /* media query */
+    @media only screen and (max-width: 800px) {
+      .nav> :nth-last-child(2) {
+        display: none;
+      }
+
+      .container {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      
+    }
+
+    }
+
+    @media only screen and (max-width: 500px) {
+      /* Small Screen  */
+
+      .nav> :nth-last-child(2) {
+        display: none;
+      }
+
+       
+      .container {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 10px;
+      
+    }
+    }
   </style>
 
 </head>
@@ -269,7 +366,7 @@
 
     <!-- /****slideshow************ -->
     <div id="slideshow">
-
+      <img src="" alt="">
     </div>
 
     <!--******* banner****************** -->
@@ -279,7 +376,70 @@
       <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1672856821_blockbuster.jpg" alt="">
 
     </div>
-    <!-- filter part -->
+
+    <!-- /*************card scrollbar******************/ -->
+
+    <div class="slider">
+
+      <h3>Trending Brands</h3>
+      <div class="cards-container">
+        <div class="card">
+          <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1679931676_Oneplus_Desktop.jpg" />
+        </div>
+        <div class="card">
+          <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1678865131_LG_Desktop.jpg" />
+        </div>
+        <div class="card">
+          <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1679570434_Sunfeast_Desktop.jpg" />
+        </div>
+
+        <div class="card">
+          <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1679570486_Jivo_Desktop.jpg" />
+        </div>
+
+        <div class="card">
+          <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1679549855_ugaoo_Desktop.jpg" />
+        </div>
+
+        <div class="card">
+          <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1679570687_MI_Desktop.jpg" />
+        </div>
+
+        <div class="card">
+          <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1679570542_Cello_Desktop.jpg" />
+        </div>
+
+        <div class="card">
+          <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1679570741_Campus_Desktop.jpg" />
+        </div>
+
+        <div class="card">
+          <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1679570779_Asus_Desktop.jpg" />
+        </div>
+
+        <div class="card">
+          <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1679571198_Nivea_Desktop.jpg" />
+        </div>
+
+        <div class="card">
+          <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1679571272_Mamypoko_Pants_Desktop.jpg" />
+        </div>
+
+        <div class="card">
+          <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1679570911_Bella_Moda_Desktop.jpg" />
+        </div>
+
+        <div class="card">
+          <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1679570944_White_Pari_Desktop.jpg" />
+        </div>
+      </div>
+      <button class="prev-btn">&#8249;</button>
+      <button class="next-btn">&#8250;</button>
+    </div>
+
+    <!--******************filter part*************-->
+
+
     <select id="filter">
       <option value="">Filter By Category</option>
       <option value="smartphones">smartphones</option>
@@ -289,7 +449,10 @@
       <option value="groceries">groceries</option>
       <option value="home decoration"></option>
     </select>
+
+
     <!-- /*********main container*****************/ -->
+
     <div class="container">
 
     </div>
@@ -297,6 +460,7 @@
   </main>
 
   <!-- //********footer****************/ -->
+
   <footer class="footer">
     <div class="cont">
       <div class="row">
@@ -348,16 +512,9 @@
 <script>
 
   ///*******************************SlideShow*************************************************************////
-  function slideshowFun(images) {
-    let div = document.getElementById('slideshow');
-    //div.innerHTML = ""
-    let img = document.createElement('img');
-    img.src = images
-    div.append(img)
-  }
 
 
-  var Images = [
+  var arr1 = [
     "https://www.jiomart.com/images/cms/aw_rbslider/slides/1679483132_Desktop_1680x320_V1.jpg",
     "https://www.jiomart.com/images/cms/aw_rbslider/slides/1680104444_Sam.jpg",
     "https://www.jiomart.com/images/cms/aw_rbslider/slides/1680001267_Tv_Banner_1680x320.jpg",
@@ -366,21 +523,54 @@
   ]
 
 
-  window.addEventListener("load", function () {
-      
-    let index = 0;
+  let image = document.querySelector("#slideshow > img ");
+  let counter = 0;
+  image.setAttribute("src", arr1[counter]);
 
-    slideshowFun(Images[index])
+  setInterval(function () {
+    counter++;
+    if (counter === arr1.length) {
+      counter = 0;
+    }
+    image.setAttribute("src", arr1[counter])
+  }, 2000)
 
-    setInterval(() => {
-      index++
-      if (index > 4) {
-        index = 0;
-      }
-      slideshowFun(Images[index])
-    }, 2000)
+  //card scroll bar start
 
+  const prevBtn = document.querySelector(".prev-btn");
+  const nextBtn = document.querySelector(".next-btn");
+  const cardsContainer = document.querySelector(".cards-container");
+
+  let scrollPosition = 0;
+  const cardWidth = 320;
+
+  nextBtn.addEventListener("click", () => {
+    cardsContainer.scrollTo({
+      left: (scrollPosition += cardWidth),
+      behavior: "smooth",
+    });
+
+    checkButtons();
   });
+
+  prevBtn.addEventListener("click", () => {
+    cardsContainer.scrollTo({
+      left: (scrollPosition -= cardWidth),
+      behavior: "smooth",
+    });
+
+    checkButtons();
+  });
+
+  function checkButtons() {
+    prevBtn.disabled = scrollPosition === 0;
+    nextBtn.disabled =
+      scrollPosition >= cardsContainer.scrollWidth - cardsContainer.clientWidth;
+  }
+
+  checkButtons();
+
+  //card scroll bar end
 
   // ***********************************************Main Data********************************************************
 
@@ -436,19 +626,19 @@
 
       container.append(card);
 
-      addToCart.addEventListener('click',function(){
+      addToCart.addEventListener('click', function () {
 
-        if(checkAvailable(element)){
+        if (checkAvailable(element)) {
 
           alert("Product Already in Cart")
         }
-        else{
+        else {
 
-          cartItem.push({...element, quantity:1});
+          cartItem.push({ ...element, quantity: 1 });
 
-           localStorage.setItem('cart' ,JSON.stringify(cartItem));
+          localStorage.setItem('cart', JSON.stringify(cartItem));
 
-           alert('Product Added To Cart')
+          alert('Product Added To Cart')
 
         }
 
@@ -460,20 +650,20 @@
 
   }
 
-   function checkAvailable(element){ 
+  function checkAvailable(element) {
 
-    for(let i=0;i<cartItem.length;i++){
+    for (let i = 0; i < cartItem.length; i++) {
 
-      if(cartItem[i].id == element.id){
+      if (cartItem[i].id == element.id) {
 
         return true
       }
     }
 
     return false
-   }
+  }
 
-   let filtered = document.getElementById("filter");
+  let filtered = document.getElementById("filter");
 
   filtered.addEventListener("change", function () {
     if (filtered.value === "") {
