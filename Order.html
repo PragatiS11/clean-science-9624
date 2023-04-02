@@ -9,278 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-
-        body {
-            line-height: 1.5;
-
-            font-family: "poppins", sans-serif;
-        }
-
-        /*******nav bar********/
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
-
-        .nav {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-            background-color: #1958aa;
-            align-items: center;
-            padding: 7px 20px 7px 80px;
-
-
-        }
-
-        #logo img {
-            width: 70px;
-            border-radius: 22px;
-        }
-
-        #links {
-            display: flex;
-            justify-content: space-around;
-            width: 40%
-        }
-
-        #links a {
-            text-decoration: none;
-            color: white;
-
-        }
-
-        #links a:hover {
-            text-decoration: none;
-            color: red;
-
-        }
-
-        #glass {
-            color: white;
-        }
-
-        #search {
-            width: 300px;
-            height: 35px;
-            border-radius: 5px;
-        }
-
-        /*********input field****************/
-
-
-
-
-        /***************buy container****************/
-        #buy-container {
-            width: 100%;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-
-
-        }
-
-        #buy-container div img {
-            width: 100%;
-            height: 260px;
-            border-radius: 2px;
-
-
-        }
-
-        #buy-container div {
-            width: 100%;
-            padding: 8px;
-            border-radius: 20px;
-            box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-            text-align: center;
-            line-height: 25px;
-
-        }
-
-
-
-        div>button {
-
-            margin: auto;
-            background-color: rgb(185, 164, 137);
-            border-radius: 8px;
-            border: none;
-            padding: 5px;
-            margin: 0px 2px 0px 2px;
-        }
-
-        #buy-container>div>h4 {
-
-            color: rgb(255, 165, 0)
-        }
-
-        #buy-container>div>h2 {
-
-            color: rgb(74, 74, 207);
-        }
-
-        /* footer********************************/
-
-        .cont {
-            max-width: 1170px;
-            margin: auto;
-        }
-
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        .footer {
-            background-color: rgb(85, 85, 201);
-            padding: 70px 0;
-        }
-
-        .footer-col {
-            width: 25%;
-            padding: 0 15px;
-        }
-
-        .footer-col h4 {
-            font-size: 18px;
-            color: #ffffff;
-            text-transform: capitalize;
-            margin-bottom: 35px;
-            font-weight: 400;
-            position: relative;
-        }
-
-        .footer-col h4::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -10px;
-            background-color: #e91e63;
-            height: 2px;
-            box-sizing: border-box;
-            width: 50px;
-        }
-
-        .footer-col ul li:not(:last-child) {
-            margin-bottom: 10px;
-        }
-
-        .footer-col ul li a {
-            font-size: 16px;
-            text-transform: capitalize;
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 300;
-            color: #bbbbbb;
-            display: block;
-            transition: all 0.3s ease;
-        }
-
-        .footer-col ul li a:hover {
-            color: #ffffff;
-            padding-left: 8px;
-        }
-
-        .footer-col .social-links a {
-            display: inline-block;
-            height: 40px;
-            width: 40px;
-            background-color: rgba(255, 255, 255, 0.2);
-            margin: 0 10px 10px 0;
-            text-align: center;
-            line-height: 40px;
-            border-radius: 50%;
-            color: #ffffff;
-            transition: all 0.5s ease;
-        }
-
-        .footer-col .social-links a:hover {
-            color: #24262b;
-            background-color: #ffffff;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            padding: 30px;
-           box-sizing: border-box;
-            border-radius: 10px;
-            background-color: aliceblue;
-        }
-
-        form>input {
-            font-size: 20px;
-        }
-
-        #container {
-            width: 60%;
-            margin: auto;
-            text-align: center;
-            padding: 30px;
-            border-radius: 10px;
-            border-radius: 20px;
-        }
-       
-        #submit:hover {
-            cursor: pointer;
-            background-color: #1958aa;
-        }
-
-        /* media query */
-        @media only screen and (max-width: 800px) {
-            .nav> :nth-last-child(2) {
-                display: none;
-            }
-
-            #buy-container {
-                width: 100%;
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
-
-            }
-
-        }
-
-                  /* Small Screen  */
-        @media only screen and (max-width: 500px) {
-          
-
-            .nav> :nth-last-child(2) {
-                display: none;
-            }
-            
-           #form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-             width: 100%;
-            background-color: #ffffff;
-       
-          
-        }
-       
-
-            #buy-container {
-                width: 100%;
-                display: grid;
-                grid-template-columns: repeat(1, 1fr);
-                gap: 10px;
-
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="Order.css">
 </head>
 
 <body>
@@ -303,40 +32,40 @@
 
 
     <div id="container">
-   
-            <form id="form">
-                <h1>Enter Your Payment Details Here</h1>
-                <div class="input-field">
-                    <i class="fa-solid fa-user"></i>
-                    <input type="text" placeholder="Name">
-                </div>
-                <div class="input-field">
-                    <i class="fa-solid fa-mobile-screen-button"></i>
-                    <input type="Number" placeholder="Mobile Number">
-                </div>
-                <div class="input-field">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <input type="text" placeholder="Address">
-                </div>
-                <div class="input-field">
-                    <i class="fa-thin fa-city"></i>
-                    <input type="text" placeholder="city">
-                </div>
-                <div class="input-field">
-                    <i class="fa-duotone fa-credit-card"></i>
-                    <input type="text" placeholder="Card Number">
-                </div>
-                <div class="input-field">
-                    <i class="fa-solid fa-lock"></i>
-                    <input type="password" placeholder="Password">
-                </div>
 
-                <div class='btn-field'>
-                    <input type="submit" id="submit">
-                </div>
+        <form id="form">
+            <h1>Enter Your Payment Details Here</h1>
+            <div class="input-field">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" placeholder="Name">
+            </div>
+            <div class="input-field">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+                <input type="Number" placeholder="Mobile Number">
+            </div>
+            <div class="input-field">
+                <i class="fa-solid fa-location-dot"></i>
+                <input type="text" placeholder="Address">
+            </div>
+            <div class="input-field">
+                <i class="fa-thin fa-city"></i>
+                <input type="text" placeholder="city">
+            </div>
+            <div class="input-field">
+                <i class="fa-duotone fa-credit-card"></i>
+                <input type="text" placeholder="Card Number">
+            </div>
+            <div class="input-field">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" placeholder="Password">
+            </div>
 
-            </form>
-        </div>
+            <div class='btn-field'>
+                <input type="submit" id="submit">
+            </div>
+
+        </form>
+    </div>
 
 
     <!-- ///*******************Total Amount*************** -->
@@ -399,121 +128,5 @@
     </footer>
 
 </body>
-<script>
-    let container = document.getElementById("buy-container");
 
-    let buyItem = JSON.parse(localStorage.getItem('buy-item')) || [];
-
-
-
-    Display(buyItem);
-
-    function Display(buyItem) {
-
-        container.innerHTML = "";
-
-        buyItem.forEach((element, index) => {
-
-            //console.log(element);
-
-            let card = document.createElement('div');
-            let img = document.createElement('img');
-            let category = document.createElement('h2');
-            let Brand = document.createElement('h3');
-            let discount = document.createElement('h5');
-            let description = document.createElement('p');
-            let price = document.createElement('h4');
-            let rating = document.createElement("h5");
-            let increment = document.createElement("button");
-            let quantity = document.createElement('span');
-            let decrement = document.createElement("button");
-            let remove = document.createElement("button");
-            let Buy = document.createElement("button");
-
-            img.src = element.images[0];
-            category.innerText = element.category;
-            Brand.innerText = element.brand;
-            discount.innerText = ` Disc. -${element.discountPercentage}%`;
-            description.innerText = element.description;
-            price.innerText = `Price- ${element.price}$`;
-            rating.innerText = `Rating- ${element.rating}`;
-            increment.innerText = "+";
-            quantity.innerText = element.quantity;
-            decrement.innerText = "-";
-            remove.innerText = "Remove";
-
-
-            remove.addEventListener('click', function () {
-
-                buyItem.splice(index, 1);
-
-                localStorage.setItem('buy-item', JSON.stringify(buyItem));
-
-                Display(buyItem)
-                window.location.reload()
-            })
-
-            increment.addEventListener('click', function () {
-
-                element.quantity++;
-
-                localStorage.setItem("buy-item", JSON.stringify(buyItem));
-
-                Display(buyItem)
-            })
-
-            decrement.addEventListener("click", function () {
-
-                if (element.quantity > 1) {
-
-                    element.quantity--;
-
-                    localStorage.setItem("buy-item", JSON.stringify(buyItem));
-
-                    Display(buyItem);
-                }
-            })
-
-
-
-            card.append(img, category, Brand, discount, description, price, rating, increment, quantity, decrement, remove);
-
-            container.append(card);
-
-            let buyTotal = document.getElementById("buy-total");
-
-            let sum = 0;
-
-            for (let i = 0; i < buyItem.length; i++) {
-
-                sum += buyItem[i].quantity * buyItem[i].price;
-
-
-            }
-            buyTotal.innerText = sum;
-
-
-
-
-        });
-
-
-    }
-
-
-    ///////////////////input form////////////////////
-
-
-    document.querySelector("form").addEventListener("submit", submit)
-
-    function submit() {
-
-        event.preventDefault()
-
-        alert("OTP has been Send to your Register Mobile No.");
-
-        window.location.href = "otp.html"
-        // let otp = Math.floor(Math.random() * 500)
-
-    }
-</script>
+<script src="Order.js"></script>
