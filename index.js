@@ -117,8 +117,8 @@ var arr1 = [
 
         if (checkAvailable(element)) {
 
-          addToCart.innerText = "Added";
-          
+         
+         // addToCart.innerText = "Added";
           alert("Product Already in Cart")
         }
         else {
@@ -128,6 +128,7 @@ var arr1 = [
           localStorage.setItem('cart', JSON.stringify(cartItem));
 
           alert('Product Added To Cart')
+         // addToCart.innerText = "Added";
 
         }
 
