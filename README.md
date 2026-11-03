@@ -23,6 +23,8 @@ This project was developed individually using HTML, CSS, and JavaScript.
 
 ### 1. Signup Page
 ![Signup Page](signup.png)
+<img width="1894" height="860" alt="image" src="https://github.com/user-attachments/assets/87c9cda6-9239-4c69-8a00-af65108e6cb4" />
+
 
 ### 2. Login Page
 
